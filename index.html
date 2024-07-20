@@ -12,72 +12,50 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            margin: 0;
             background-color: #f0f0f0;
         }
-        .calculator {
-            background: white;
+        .container {
+            background: #fff;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        .input-group {
-            margin-bottom: 15px;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        input[type="number"] {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
+        input, button {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
         }
         button {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
             cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        .result {
-            margin-top: 15px;
-            font-weight: bold;
         }
     </style>
 </head>
 <body>
-
-<div class="calculator">
-    <div class="input-group">
-        <label for="monto-final">Monto Final:</label>
-        <input type="number" id="monto-final" placeholder="Introduce el monto final">
+    <div class="container">
+        <h1>Calculadora con 7%</h1>
+        <input type="number" id="finalAmount" placeholder="Monto final">
+        <button onclick="calculate()">Calcular</button>
+        <p id="result"></p>
     </div>
-    <div class="input-group">
-        <label for="porcentaje">Porcentaje (%):</label>
-        <input type="number" id="porcentaje" placeholder="Introduce el porcentaje">
-    </div>
-    <button onclick="calcularMontoBase()">Calcular Monto Base</button>
-    <div class="result" id="resultado"></div>
-</div>
 
-<script>
-    function calcularMontoBase() {
-        var montoFinal = parseFloat(document.getElementById('monto-final').value);
-        var porcentaje = parseFloat(document.getElementById('porcentaje').value);
-
-        if (isNaN(montoFinal) || isNaN(porcentaje)) {
-            document.getElementById('resultado').textContent = "Por favor, introduce valores válidos.";
-            return;
+    <script>
+        function calculate() {
+            const finalAmount = parseFloat(document.getElementById('finalAmount').value);
+            if (!isNaN(finalAmount)) {
+                const originalAmount = finalAmount / 1.07;
+                document.getElementById('result').innerText = `El monto original es: ${originalAmount.toFixed(2)}`;
+            } else {
+                document.getElementById('result').innerText = "Por favor, ingresa un monto válido.";
+            }
         }
 
-        var montoBase = montoFinal / (1 + (porcentaje / 100));
-        document.getElementById('resultado').textContent = "Monto Base: " + montoBase.toFixed(2);
-    }
-</script>
+        document.getElementById('finalAmount').addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                calculate();
+            }
+        });
+    </script>
 
 </body>
 </html>
