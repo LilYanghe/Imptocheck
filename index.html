@@ -53,10 +53,9 @@
             const finalAmount = parseFloat(document.getElementById('finalAmount').value);
             if (!isNaN(finalAmount)) {
                 const originalAmount = finalAmount / 1.07;
-                const recalculatedFinalAmount = originalAmount * 1.07;
                 document.getElementById('result').innerHTML = `
                     El monto original es: <span class="highlight">${originalAmount.toFixed(2)}</span><br>
-                    Monto Final Real: <span class="highlight">${recalculatedFinalAmount.toFixed(2)}</span>
+                    Monto Final Real: <span class="highlight">${finalAmount.toFixed(2)}</span>
                 `;
             } else {
                 document.getElementById('result').innerText = "Por favor, ingresa un monto válido.";
