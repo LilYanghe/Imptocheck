@@ -58,8 +58,9 @@
                 // Recalcula el monto final real usando el monto original redondeado
                 const recalculatedFinalAmount = originalAmount * 1.07;
                 document.getElementById('result').innerHTML = `
-                    Monto sin 7%: <span class="highlight">${originalAmount.toFixed(2)}</span><br>
-                    Monto Final Real: <span class="highlight">${recalculatedFinalAmount.toFixed(3)}</span>
+                    El monto original es: <span class="highlight">${originalAmount.toFixed(2)}</span><br>
+                    Monto Final Real (2 decimales): <span class="highlight">${recalculatedFinalAmount.toFixed(2)}</span><br>
+                    Monto Final Real (3 decimales): <span class="highlight">${recalculatedFinalAmount.toFixed(3)}</span>
                 `;
             } else {
                 document.getElementById('result').innerText = "Por favor, ingresa un monto válido.";
