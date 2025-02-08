@@ -57,10 +57,13 @@
                 originalAmount = Math.round(originalAmount * 100) / 100;
                 // Recalcula el monto final real usando el monto original redondeado
                 const recalculatedFinalAmount = originalAmount * 1.07;
+                const taxAmount = originalAmount * 0.07; // Cálculo del 7%
+
                 document.getElementById('result').innerHTML = `
-                    El monto original es: <span class="highlight">${originalAmount.toFixed(2)}</span><br>
-                    Monto Final Real (2 decimales): <span class="highlight">${recalculatedFinalAmount.toFixed(2)}</span><br>
-                    Monto Final Real (3 decimales): <span class="highlight">${recalculatedFinalAmount.toFixed(3)}</span>
+                    Monto sin 7%: <span class="highlight">${originalAmount.toFixed(2)}</span><br>
+                    7%: <span class="highlight">${taxAmount.toFixed(2)}</span><br>
+                    Monto con 7% (0.00): <span class="highlight">${recalculatedFinalAmount.toFixed(2)}</span><br>
+                    Monto con 7% (0.000): <span class="highlight">${recalculatedFinalAmount.toFixed(3)}</span>
                 `;
             } else {
                 document.getElementById('result').innerText = "Por favor, ingresa un monto válido.";
