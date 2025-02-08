@@ -59,7 +59,7 @@
                 const recalculatedFinalAmount = originalAmount * 1.07;
                 document.getElementById('result').innerHTML = `
                     Monto sin 7%: <span class="highlight">${originalAmount.toFixed(2)}</span><br>
-                    Monto Final Real: <span class="highlight">${recalculatedFinalAmount.toFixed(2)}</span>
+                    Monto Final Real: <span class="highlight">${recalculatedFinalAmount.toFixed(3)}</span>
                 `;
             } else {
                 document.getElementById('result').innerText = "Por favor, ingresa un monto válido.";
